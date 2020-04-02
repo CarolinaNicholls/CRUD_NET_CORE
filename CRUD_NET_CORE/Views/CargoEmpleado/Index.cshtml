@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CRUD_NET_CORE.Models.Entities.CargoEmpleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    ViewData["Title"] = "Pagina Cargo";
+}
+
+<h1>Cargos</h1>
+
+<p>
+
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+                <a asp-action="CrearCargo" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Crear Cargo</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo)
+                </td>
+              
+                <td>
+                    <a asp-action="CrearCargo" asp-route-id="@item.IdCargo"><i class="fa fa-marker fa-lg"></i>Editar</a> |
+                    <a asp-action="Eliminar" asp-route-id="@item.IdCargo" class="text-danger m1-1" onclick="return confirm ('Deseas eliminar este registro?')"><i class="fa fa-trash-alt fa-lg"></i>Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
